@@ -5,6 +5,8 @@ description = "The REST API backend of short-url"
 requires-python = ">=3.12"
 dependencies = [
     "fastapi[standard]==0.115.11",
+    "pydantic==2.10.6",
+    "pydantic-settings==2.8.1",
     "uvicorn[standard]==0.34.0"
 ]
 

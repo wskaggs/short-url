@@ -1,8 +1,8 @@
 services:
   backend:
-    restart: always
     build:
       context: ./backend
+    restart: always
     environment:
       HOST: ${BACKEND_HOST:?Variable not set}
       PORT: ${BACKEND_PORT:?Variable not set}

@@ -1,13 +1,8 @@
-from fastapi import FastAPI
+import uvicorn
+from api import create_api
+from api.settings import settings
 
-app = FastAPI()
+api = create_api()
 
-
-@app.get("/")
-async def root() -> dict[str, str]:
-    return {"message": "hello, world"}
-
-
-@app.get("/health")
-async def health() -> dict[str, str]:
-    return {"status": "healthy"}
+if __name__ == "__main__":
+    uvicorn.run("main:api", workers=4, host=settings.HOST, port=settings.PORT)
