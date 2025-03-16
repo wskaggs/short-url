@@ -1,0 +1,15 @@
+services:
+  backend:
+    restart: always
+    build:
+      context: ./backend
+    environment:
+      HOST: ${BACKEND_HOST:?Variable not set}
+      PORT: ${BACKEND_PORT:?Variable not set}
+    ports:
+      - "${BACKEND_PORT}:${BACKEND_PORT}"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:${BACKEND_PORT}/health"]
+      timeout: 5s
+      interval: 10s
+      retries: 5
