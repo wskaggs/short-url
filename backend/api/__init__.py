@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from api.dependencies import Settings
 
 
 def create_api() -> FastAPI:
@@ -10,8 +11,8 @@ def create_api() -> FastAPI:
     api = FastAPI()
 
     @api.get("/")
-    async def root() -> dict[str, str]:
-        return {"message": "hello, world"}
+    async def root(settings: Settings) -> dict[str, str]:
+        return {"database_uri": settings.SQLALCHEMY_DATABASE_URI}
 
     @api.get("/health")
     async def health() -> dict[str, str]:

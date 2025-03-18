@@ -6,6 +6,7 @@ services:
     environment:
       HOST: ${BACKEND_HOST:?Variable not set}
       PORT: ${BACKEND_PORT:?Variable not set}
+      SQLALCHEMY_DATABASE_URI: ${SQLALCHEMY_DATABASE_URI?Variable not set}
     ports:
       - "${BACKEND_PORT}:${BACKEND_PORT}"
     healthcheck:

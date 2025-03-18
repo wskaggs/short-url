@@ -7,8 +7,12 @@ dependencies = [
     "fastapi[standard]==0.115.11",
     "pydantic==2.10.6",
     "pydantic-settings==2.8.1",
-    "uvicorn[standard]==0.34.0"
+    "uvicorn[standard]==0.34.0",
+
+    # dev-dependencies
+    "pytest==8.3.5"
 ]
 
-[project.optional-dependencies]
-dev-dependencies = []
+[tool.pytest.ini_options]
+pythonpath = "api"
+testpaths = ["tests"]
